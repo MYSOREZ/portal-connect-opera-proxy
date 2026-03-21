@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="opera_red">#FF1B2D</color>
+    <color name="opera_red_dark">#C40000</color>
+    
+    <!-- Dark Theme Colors -->
+    <color name="background_app">#121212</color>
+    <color name="background_card">#1E1E1E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    
+    <color name="text_primary">#E0E0E0</color>
+    <color name="text_secondary">#A0A0A0</color>
+    <color name="divider">#2C2C2C</color>
+    
+    <!-- Log Colors -->
+    <color name="log_background">#000000</color>
+    <color name="log_text">#00E676</color>
+    <color name="portal_accent">#00D4AA</color>
+    <color name="widget_bg">#1A1A1A</color>
+    <color name="widget_accent">#00E676</color>
+
+    <!-- FIX: Оставляем этот ресурс для совместимости, но делаем его темным -->
+    <color name="background_light">#121212</color> 
+</resources>

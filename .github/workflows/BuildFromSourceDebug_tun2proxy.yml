@@ -1,0 +1,121 @@
+name: Build Proxy Opera (tun2proxy)
+
+on:
+  #push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Загружаем код из репозитория
+    - uses: actions/checkout@v6.0.2
+
+    # 2. Настраиваем Java 17
+    - name: set up JDK 17
+      uses: actions/setup-java@v5.2.0
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    
+    # 3. Настраиваем Gradle 8.7
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v5
+      with:
+        gradle-version: '8.7'
+        dependency-graph: disabled
+
+    # 4. Устанавливаем утилиты для работы с архивами и JSON
+    #- name: Install tools
+    #  run: |
+    #    sudo apt-get update
+    #    sudo apt-get install -y unzip jq
+
+    # 5. Скачиваем внешние зависимости (динамически берём latest релизы)
+    - name: Download External Binaries
+      run: |
+        set -e
+
+        # Папки под обе архитектуры
+        mkdir -p app/src/main/jniLibs/arm64-v8a
+        mkdir -p app/src/main/jniLibs/armeabi-v7a
+
+        # -----------------------------
+        # Opera Proxy: latest release
+        # arm64: opera-proxy.android-arm64
+        # armv7: opera-proxy.android-arm
+        # -----------------------------
+        OPERA_PROXY_ARM64_URL=$(curl -s https://api.github.com/repos/Snawoot/opera-proxy/releases/latest \
+          | jq -r '.assets[] | select(.name == "opera-proxy.android-arm64") | .browser_download_url')
+
+        OPERA_PROXY_ARMV7_URL=$(curl -s https://api.github.com/repos/Snawoot/opera-proxy/releases/latest \
+          | jq -r '.assets[] | select(.name == "opera-proxy.android-arm") | .browser_download_url')
+
+        if [ -z "$OPERA_PROXY_ARM64_URL" ] || [ "$OPERA_PROXY_ARM64_URL" = "null" ]; then
+          echo "Не найден asset opera-proxy.android-arm64"
+          exit 1
+        fi
+
+        if [ -z "$OPERA_PROXY_ARMV7_URL" ] || [ "$OPERA_PROXY_ARMV7_URL" = "null" ]; then
+          echo "Не найден asset opera-proxy.android-arm"
+          exit 1
+        fi
+
+        echo "Скачиваем opera-proxy arm64: $OPERA_PROXY_ARM64_URL"
+        curl -L -o app/src/main/jniLibs/arm64-v8a/liboperaproxy.so "$OPERA_PROXY_ARM64_URL"
+
+        echo "Скачиваем opera-proxy armv7: $OPERA_PROXY_ARMV7_URL"
+        curl -L -o app/src/main/jniLibs/armeabi-v7a/liboperaproxy.so "$OPERA_PROXY_ARMV7_URL"
+
+        # -----------------------------
+        # tun2proxy: latest release (zip уже содержит обе папки)
+        # -----------------------------
+        TUN2PROXY_ASSET_URL=$(curl -s https://api.github.com/repos/tun2proxy/tun2proxy/releases/latest \
+          | jq -r '.assets[] | select(.name == "tun2proxy-android-libs.zip") | .browser_download_url')
+
+        if [ -z "$TUN2PROXY_ASSET_URL" ] || [ "$TUN2PROXY_ASSET_URL" = "null" ]; then
+          echo "Не найден asset tun2proxy-android-libs.zip"
+          exit 1
+        fi
+
+        echo "Скачиваем tun2proxy libs: $TUN2PROXY_ASSET_URL"
+        curl -L -o tun2proxy-android-libs.zip "$TUN2PROXY_ASSET_URL"
+
+        unzip -o tun2proxy-android-libs.zip -d tun2proxy-android-libs-extract
+
+        # arm64-v8a
+        cp tun2proxy-android-libs-extract/tun2proxy-android-libs/arm64-v8a/libtun2proxy.so \
+           app/src/main/jniLibs/arm64-v8a/libtun2proxy.so
+
+        # armeabi-v7a
+        cp tun2proxy-android-libs-extract/tun2proxy-android-libs/armeabi-v7a/libtun2proxy.so \
+           app/src/main/jniLibs/armeabi-v7a/libtun2proxy.so
+           
+    # 6. Извлекаем версию из Gradle
+    - name: Extract Version Name
+      id: extract_version
+      run: |
+        VERSION_NAME=$(grep "versionName" app/build.gradle | head -n 1 | awk '{print $2}' | tr -d '"' | tr -d "'")
+        if [[ -z "$VERSION_NAME" ]]; then
+          echo "Could not extract version"
+          exit 1
+        fi
+        echo "Detected App Version: $VERSION_NAME"
+        echo "APP_VERSION=${VERSION_NAME}" >> $GITHUB_ENV
+
+    # 7. Сборка
+    - name: Build with Gradle
+      run: gradle assembleDebug --stacktrace
+      
+    - name: List APK outputs
+      run: |
+        ls -la app/build/outputs/apk/debug || true
+      
+    # 8. Загрузка готового APK
+    - name: Upload APKs
+      uses: actions/upload-artifact@v7.0.0
+      with:
+        name: Opera_Proxy_v${{ env.APP_VERSION }}
+        path: |
+          app/build/outputs/apk/debug/*.apk

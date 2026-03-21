@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="Portal (Большой)"
+    android:minWidth="160dp"
+    android:minHeight="120dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/portal_widget_large"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"/>

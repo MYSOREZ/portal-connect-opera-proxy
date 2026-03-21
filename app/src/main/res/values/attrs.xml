@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="theme_accent" format="color" />
+    <attr name="theme_accent_dark" format="color" />
+    <attr name="theme_background_app" format="color" />
+    <attr name="theme_background_card" format="color" />
+    <attr name="theme_black" format="color" />
+    <attr name="theme_bottom_bar_bg" format="color" />
+    <attr name="theme_btn_base" format="color" />
+    <attr name="theme_btn_highlight" format="color" />
+    <attr name="theme_btn_shadow" format="color" />
+    <attr name="theme_card_fill" format="color" />
+    <attr name="theme_divider" format="color" />
+    <attr name="theme_icon_tint" format="color" />
+    <attr name="theme_log_background" format="color" />
+    <attr name="theme_log_overlay_center" format="color" />
+    <attr name="theme_log_overlay_end" format="color" />
+    <attr name="theme_log_overlay_start" format="color" />
+    <attr name="theme_log_text" format="color" />
+    <attr name="theme_ripple" format="color" />
+    <attr name="theme_text_primary" format="color" />
+    <attr name="theme_text_secondary" format="color" />
+    <attr name="theme_white" format="color" />
+</resources>

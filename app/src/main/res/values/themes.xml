@@ -1,0 +1,107 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PortalConnect" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">?attr/theme_background_app</item>
+        <item name="android:statusBarColor">?attr/theme_background_card</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <item name="colorPrimary">?attr/theme_accent</item>
+        <item name="colorPrimaryVariant">?attr/theme_accent_dark</item>
+        <item name="colorOnPrimary">?attr/theme_white</item>
+        <item name="colorSecondary">?attr/theme_accent</item>
+        <item name="colorSecondaryVariant">?attr/theme_accent_dark</item>
+        <item name="colorOnSecondary">?attr/theme_white</item>
+        
+        <item name="android:textColorPrimary">?attr/theme_text_primary</item>
+        <item name="android:textColorSecondary">?attr/theme_text_secondary</item>
+        
+        <item name="colorControlActivated">?attr/theme_accent</item>
+        <item name="colorControlNormal">?attr/theme_icon_tint</item>
+
+        <!-- Default Theme Values (Dark) -->
+        <item name="theme_accent">#00d4aa</item>
+        <item name="theme_accent_dark">#00a884</item>
+        <item name="theme_background_app">#121212</item>
+        <item name="theme_background_card">#1e1e1e</item>
+        <item name="theme_black">#000000</item>
+        <item name="theme_bottom_bar_bg">#e6121212</item>
+        <item name="theme_btn_base">#00d4aa</item>
+        <item name="theme_btn_highlight">#50e8d0</item>
+        <item name="theme_btn_shadow">#00a884</item>
+        <item name="theme_card_fill">#dd1e1e1e</item>
+        <item name="theme_divider">#2c2c2c</item>
+        <item name="theme_icon_tint">#e0e0e0</item>
+        <item name="theme_log_background">#000000</item>
+        <item name="theme_log_overlay_center">#cc121212</item>
+        <item name="theme_log_overlay_end">#f2121212</item>
+        <item name="theme_log_overlay_start">#e6121212</item>
+        <item name="theme_log_text">#00e676</item>
+        <item name="theme_ripple">#50ffffff</item>
+        <item name="theme_text_primary">#e0e0e0</item>
+        <item name="theme_text_secondary">#a0a0a0</item>
+        <item name="theme_white">#ffffff</item>
+    </style>
+
+    <!-- White Theme -->
+    <style name="Theme.PortalConnect.White" parent="Theme.PortalConnect">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="theme_accent">#00a884</item>
+        <item name="theme_accent_dark">#008566</item>
+        <item name="theme_background_app">#fafafa</item>
+        <item name="theme_background_card">#ffffff</item>
+        <item name="theme_bottom_bar_bg">#e6ffffff</item>
+        <item name="theme_btn_base">#00a884</item>
+        <item name="theme_btn_highlight">#33d4b8</item>
+        <item name="theme_btn_shadow">#006b52</item>
+        <item name="theme_card_fill">#f5f5f5</item>
+        <item name="theme_divider">#e0e0e0</item>
+        <item name="theme_icon_tint">#212121</item>
+        <item name="theme_log_background">#e0e0e0</item>
+        <item name="theme_log_overlay_center">#ccfafafa</item>
+        <item name="theme_log_overlay_end">#f2fafafa</item>
+        <item name="theme_log_overlay_start">#e6fafafa</item>
+        <item name="theme_log_text">#1b5e20</item>
+        <item name="theme_ripple">#20000000</item>
+        <item name="theme_text_primary">#212121</item>
+        <item name="theme_text_secondary">#757575</item>
+    </style>
+
+    <!-- Amoled Theme -->
+    <style name="Theme.PortalConnect.Amoled" parent="Theme.PortalConnect">
+        <item name="theme_background_app">#000000</item>
+        <item name="theme_background_card">#000000</item>
+        <item name="theme_card_fill">#121212</item>
+        <item name="theme_divider">#1a1a1a</item>
+    </style>
+
+    <!-- Pink Theme -->
+    <style name="Theme.PortalConnect.Pink" parent="Theme.PortalConnect">
+        <item name="theme_accent">#ff4081</item>
+        <item name="theme_accent_dark">#c60055</item>
+        <item name="theme_btn_base">#ff4081</item>
+    </style>
+
+    <!-- Hacker Theme -->
+    <style name="Theme.PortalConnect.Hacker" parent="Theme.PortalConnect">
+        <item name="theme_accent">#00ff00</item>
+        <item name="theme_accent_dark">#008f00</item>
+        <item name="theme_btn_base">#00ff00</item>
+        <item name="theme_text_primary">#00ff00</item>
+        <item name="theme_text_secondary">#008f00</item>
+    </style>
+
+    <!-- Glass Theme -->
+    <style name="Theme.PortalConnect.Glass" parent="Theme.PortalConnect">
+        <item name="theme_background_app">#22121212</item>
+        <item name="theme_background_card">#441e1e1e</item>
+    </style>
+
+    <style name="Theme.PortalConnect.NoActionBar" parent="Theme.PortalConnect">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeOverlay.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">?attr/theme_white</item>
+    </style>
+</resources>

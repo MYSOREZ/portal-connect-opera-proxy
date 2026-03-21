@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="dns_strategy_labels">
+        <item>Virtual (Fake-IP)</item>
+        <item>Over TCP (Default)</item>
+    </array>
+    <array name="dns_strategy_values">
+        <item>0</item>
+        <item>1</item>
+    </array>
+    <array name="verbosity_levels">
+        <item>(Wrapper) Оболочка</item>
+        <item>(Debug) Все логи</item>
+        <item>(Info) Стандарт</item>
+        <item>(Warning)</item>
+        <item>(Error)</item>
+        <item>(Critical)</item>
+    </array>
+    <array name="verbosity_values">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </array>
+</resources>

@@ -1,0 +1,59 @@
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.gradle/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Kotlin
+.kotlin/
+.artifacts/
+
+# Decompiled & Temp folders (Portal Connect Reconstruction specific)
+decompiled_portal/
+decompiled_portal_full/
+jadx_tools/
+temp_apk/
+temp_portal/
+null/
+"PowerShell 7.5.4"/
+*.apk
+*.dex
+*.arsc
+*.bin
+*.json-tooling-metadata
+
+# Gemini logs
+gemini-conversation-*.json
+*.json
+!app/src/main/**/*.json
+!*.json.bin
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+log.txt
+app/src/main/assets/logs/
+build/reports/
+
+# Signing
+*.jks
+*.p12
+*.keystore
+!debug.keystore
+
+# CMake
+.cxx/
+.externalNativeBuild/
