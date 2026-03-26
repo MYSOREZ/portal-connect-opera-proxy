@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/theme_background_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <com.google.android.material.appbar.AppBarLayout
         android:theme="@style/ThemeOverlay.Toolbar"
         android:background="?attr/theme_background_card"
@@ -14,21 +12,19 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="@string/settings_title"
             app:titleTextColor="?attr/theme_text_primary"/>
     </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <LinearLayout
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <TextView
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -37,16 +33,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:text="Поведение" />
-
+                android:text="@string/settings_behavior"/>
             <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:id="@+id/btnAutostart"
                 android:background="@drawable/item_background"
-                android:padding="12dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
                 <TextView
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -55,40 +57,44 @@
                     android:layout_height="wrap_content"
                     android:text="@string/pref_autostart_menu"/>
             </LinearLayout>
-
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:textColor="?attr/theme_text_primary"
                 android:id="@+id/swKillSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_kill_switch"
-                android:textColor="?attr/theme_text_primary" />
-
+                app:switchPadding="8dp"/>
             <TextView
                 android:textSize="12sp"
                 android:textColor="?attr/theme_text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/pref_kill_switch_summary"/>
-
             <TextView
-                android:text="@string/theme_section"
-                android:textColor="?attr/theme_accent"
-                android:textStyle="bold"
                 android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/theme_accent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp" />
-
+                android:layout_marginBottom="4dp"
+                android:text="@string/theme_section"/>
             <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:id="@+id/btnThemeSelect"
                 android:background="@drawable/item_background"
-                android:padding="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
                 <TextView
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -97,14 +103,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/theme_select"/>
             </LinearLayout>
-
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:textColor="?attr/theme_text_primary"
                 android:id="@+id/swPinProtection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_pin_protection"
-                android:textColor="?attr/theme_text_primary" />
-
+                app:switchPadding="8dp"/>
             <TextView
                 android:textSize="12sp"
                 android:textColor="?attr/theme_text_secondary"
@@ -112,159 +117,266 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="@string/pref_pin_protection_summary"/>
-
+            <TextView
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="?attr/theme_accent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/dns_hint"/>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="6dp"
                 android:hint="@string/dns_hint"
                 app:boxStrokeColor="?attr/theme_accent"
-                app:hintTextColor="?attr/theme_accent">
+                app:hintTextColor="?attr/theme_accent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:textSize="14sp"
+                    android:textColor="?attr/theme_text_primary"
                     android:id="@+id/etDns"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textColor="?attr/theme_text_primary" />
+                    android:layout_height="48dp"
+                    android:text="@string/DNS_for_VPN"
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
-
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                <com.google.android.material.button.MaterialButton
+                    android:textSize="12sp"
+                    android:textColor="?attr/theme_accent"
+                    android:id="@+id/btnDnsGoogle"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:text="@string/dns_preset_google"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                <com.google.android.material.button.MaterialButton
+                    android:textSize="12sp"
+                    android:textColor="?attr/theme_accent"
+                    android:id="@+id/btnDnsCloudflare"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:text="@string/dns_preset_cloudflare"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                <com.google.android.material.button.MaterialButton
+                    android:textSize="12sp"
+                    android:textColor="?attr/theme_accent"
+                    android:id="@+id/btnDnsAdguard"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:text="@string/dns_preset_adguard"
+                    android:layout_weight="1"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?attr/theme_text_secondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mode_title"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:id="@+id/ivHelpAppMode"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="4dp"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_menu_help"
+                    android:contentDescription="Справка"
+                    app:tint="?attr/theme_icon_tint"/>
+            </LinearLayout>
             <RadioGroup
                 android:id="@+id/rgAppMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:textSize="13sp"
+                    android:textColor="?attr/theme_text_primary"
                     android:id="@+id/rbModeWhitelist"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
+                    android:checked="true"
                     android:text="@string/mode_whitelist"
-                    android:textColor="?attr/theme_text_primary"
                     app:buttonTint="?attr/theme_accent"/>
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:textSize="13sp"
+                    android:textColor="?attr/theme_text_primary"
                     android:id="@+id/rbModeWhitelistDisallowed"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
                     android:text="@string/mode_whitelist_disallowed"
-                    android:textColor="?attr/theme_text_primary"
                     app:buttonTint="?attr/theme_accent"/>
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:textSize="13sp"
+                    android:textColor="?attr/theme_text_primary"
                     android:id="@+id/rbModeBlacklist"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
                     android:text="@string/mode_blacklist"
-                    android:textColor="?attr/theme_text_primary"
                     app:buttonTint="?attr/theme_accent"/>
             </RadioGroup>
-
             <com.google.android.material.button.MaterialButton
+                android:textColor="?attr/theme_accent"
                 android:id="@+id/btnSelectApps"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/app_selector_btn"
-                android:textColor="?attr/theme_accent"
-                app:strokeColor="?attr/theme_accent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAdvanced"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:strokeColor="?attr/theme_accent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            <TextView
+                android:textSize="11sp"
+                android:textColor="?attr/theme_text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/app_selector_desc"/>
+            <com.google.android.material.button.MaterialButton
+                android:textColor="?attr/theme_text_secondary"
+                android:id="@+id/btnAdvanced"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/btn_settings_advanced"
-                android:textColor="?attr/theme_text_secondary" />
-
+                app:strokeColor="?attr/theme_text_secondary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
             <TextView
-                android:text="@string/about_section"
-                android:textColor="?attr/theme_accent"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:textSize="14sp"
+                android:textColor="?attr/theme_accent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
-
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/about_section"/>
             <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:id="@+id/btnLinkKiberportal"
                 android:background="@drawable/item_background"
-                android:padding="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:src="@drawable/ic_telegram"
-                    app:tint="?attr/theme_icon_tint" />
+                    android:contentDescription="Telegram"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/theme_icon_tint"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/telegram_link_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     android:textColor="?attr/theme_text_primary"
-                    android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telegram_link_text"/>
             </LinearLayout>
-
             <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:id="@+id/btnLinkMixKiberportal"
                 android:background="@drawable/item_background"
-                android:padding="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:src="@drawable/ic_telegram"
-                    app:tint="?attr/theme_icon_tint" />
+                    android:contentDescription="Telegram"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/theme_icon_tint"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/telegram_link_text_mix"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     android:textColor="?attr/theme_text_primary"
-                    android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telegram_link_text_mix"/>
             </LinearLayout>
-
             <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:id="@+id/btnSupportProject"
                 android:background="@drawable/item_background"
-                android:padding="12dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:focusable="true"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginBottom="4dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@android:drawable/ic_menu_preferences"
+                    android:contentDescription="Поддержка"
+                    android:layout_marginEnd="16dp"
+                    app:tint="?attr/theme_icon_tint"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/support_project_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     android:textColor="?attr/theme_text_primary"
-                    android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/support_project_text"/>
             </LinearLayout>
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCheckUpdate"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_check_update"
                 android:textColor="?attr/theme_accent"
-                app:strokeColor="?attr/theme_accent" />
-
+                android:id="@+id/btnCheckUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/btn_check_update"
+                app:strokeColor="?attr/theme_accent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
             <TextView
+                android:textSize="12sp"
+                android:textColor="?attr/theme_text_secondary"
+                android:layout_gravity="center"
                 android:id="@+id/tvVersion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:textColor="?attr/theme_text_secondary"
-                android:textSize="12sp" />
-
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

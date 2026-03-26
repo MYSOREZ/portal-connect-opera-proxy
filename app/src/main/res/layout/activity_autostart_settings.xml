@@ -1,97 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/theme_background_app"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app">
-
+    android:layout_height="match_parent">
     <com.google.android.material.appbar.AppBarLayout
+        android:theme="@style/ThemeOverlay.Toolbar"
+        android:background="?attr/theme_background_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background_card">
-
+        android:layout_height="wrap_content">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="@string/pref_autostart_menu"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="?attr/theme_text_primary"/>
     </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
-
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:textColor="?attr/theme_text_primary"
                 android:id="@+id/swAutoStartBoot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_auto_start_boot"
-                android:textColor="@color/text_primary" />
-
+                app:switchPadding="8dp"/>
             <TextView
+                android:textSize="12sp"
+                android:textColor="?attr/theme_text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/pref_auto_start_boot_summary"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-
+                android:layout_marginBottom="8dp"
+                android:text="@string/pref_auto_start_boot_summary"/>
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:textColor="?attr/theme_text_primary"
                 android:id="@+id/swAutoReconnect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_auto_reconnect"
-                android:textColor="@color/text_primary" />
-
+                app:switchPadding="8dp"/>
             <TextView
+                android:textSize="12sp"
+                android:textColor="?attr/theme_text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/pref_auto_reconnect_summary"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-
+                android:layout_marginBottom="8dp"
+                android:text="@string/pref_auto_reconnect_summary"/>
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:textColor="?attr/theme_text_primary"
                 android:id="@+id/swAutoWifi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pref_auto_wifi"
-                android:textColor="@color/text_primary" />
-
+                app:switchPadding="8dp"/>
             <TextView
+                android:textSize="12sp"
+                android:textColor="?attr/theme_text_secondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/pref_auto_wifi_summary"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-
+                android:text="@string/pref_auto_wifi_summary"/>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/pref_auto_wifi_ssid"
-                app:boxStrokeColor="@color/opera_red"
+                app:boxStrokeColor="?attr/theme_accent"
                 app:helperText="@string/pref_auto_wifi_ssid_hint"
-                app:hintTextColor="@color/opera_red">
-
+                app:helperTextEnabled="true"
+                app:hintTextColor="?attr/theme_accent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:textSize="14sp"
+                    android:textColor="?attr/theme_text_primary"
                     android:id="@+id/etAutoWifiSsid"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textColor="@color/text_primary" />
+                    android:layout_height="48dp"
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

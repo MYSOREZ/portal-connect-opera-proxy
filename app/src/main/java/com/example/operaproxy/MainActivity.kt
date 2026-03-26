@@ -87,12 +87,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         INSTANCE = this
         
-        val startupPrefs = getSharedPreferences("OperaProxyPrefs", Context.MODE_PRIVATE)
-        if (!startupPrefs.getBoolean("ONBOARDING_FINISHED", false)) {
-            startActivity(Intent(this, OnboardingActivity::class.java))
-            finish()
-            return
-        }
+
         
         if (PinHelper.isPinEnabled(this)) {
             PinHelper.showVerifyDialog(this, { continueOnCreate() }, { finish() })

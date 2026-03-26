@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
     android:layout_width="match_parent"
@@ -8,34 +7,36 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Придумайте PIN (4 цифры)"
-        app:boxStrokeColor="@color/opera_red"
+        android:hint="@string/pin_dialog_title"
+        app:boxStrokeColor="?attr/theme_accent"
         app:endIconMode="password_toggle"
-        app:hintTextColor="@color/opera_red"
+        app:hintTextColor="?attr/theme_accent"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <com.google.android.material.textfield.TextInputEditText
+            android:textSize="14sp"
+            android:textColor="?attr/theme_text_primary"
             android:id="@+id/editPin1"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:maxLength="4"
-            android:textColor="@color/text_primary"
             android:inputType="numberPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Повторите PIN"
-        app:boxStrokeColor="@color/opera_red"
+        android:hint="@string/pin_confirm_title"
+        app:boxStrokeColor="?attr/theme_accent"
         app:endIconMode="password_toggle"
-        app:hintTextColor="@color/opera_red"
+        app:hintTextColor="?attr/theme_accent"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <com.google.android.material.textfield.TextInputEditText
+            android:textSize="14sp"
+            android:textColor="?attr/theme_text_primary"
             android:id="@+id/editPin2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:maxLength="4"
-            android:textColor="@color/text_primary"
             android:inputType="numberPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
