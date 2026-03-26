@@ -25,19 +25,16 @@ android {
         }
     }
     
-    // Настройка разделения APK
     splits {
         abi {
-            enable true // Включает разделение по архитектурам
+            enable true
             reset()
             include "armeabi-v7a", "arm64-v8a"
-            universalApk true // СОЗДАЕТ ТОТ САМЫЙ UNIVERSAL APK
+            universalApk true
         }
     }
     
     signingConfigs {
-        // Для удобства используем дебажный ключ для релиза, 
-        // чтобы APK можно было установить сразу без создания своего ключа.
         release {
             storeFile file(System.getProperty("user.home") + "/.android/debug.keystore")
             storePassword 'android'
@@ -48,8 +45,8 @@ android {
     
     buildTypes {
         release {
-            minifyEnabled false // Включаем оптимизацию кода
-            shrinkResources false // Удаляем неиспользуемые ресурсы
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release // Подписываем релиз
         }
@@ -79,7 +76,6 @@ android {
         }
     }
 
-    // Красивое именование файлов: PortalConnect-1.0.0-arm64.apk и т.д.
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
             def abi = output.getFilter(com.android.build.OutputFile.ABI)
